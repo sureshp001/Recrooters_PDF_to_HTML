@@ -31,14 +31,14 @@ def upload_pdf(request):
             # Convert PDF to HTML
             html_content = convert_pdf_to_html(file_path)
 
-            return render(request, 'pdf_editor/edit_pdf.html', {
+            return render(request, 'edit_pdf.html', {
                 'html_content': html_content,
                 'file_name': pdf_file.name,
             })
     else:
         form = PDFUploadForm()
     
-    return render(request, 'pdf_editor/upload_pdf.html', {'form': form})
+    return render(request, 'upload_pdf.html', {'form': form})
 
 def convert_pdf_to_html(pdf_path):
     doc = fitz.open(pdf_path)
